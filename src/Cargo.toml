@@ -1,0 +1,13 @@
+[package]
+name = "libriichi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "libriichi"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.28", features = ["extension-module"] }
+serde_json = "1"
+# 여기에 기존 libriichi 내부 의존성 추가
