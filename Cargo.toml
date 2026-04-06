@@ -38,7 +38,7 @@ mimalloc = { version = "0.1", default-features = false, optional = true }
 
 pyo3 = { version = "0.25", features = [
     "extension-module",
-    "abi3-py313",
+    "abi3-py312",
     "auto-initialize",
     "multiple-pymethods",
     "anyhow"
