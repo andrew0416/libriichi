@@ -187,6 +187,68 @@ impl PlayerState {
     pub const fn at_furiten(&self) -> bool {
         self.at_furiten
     }
+
+        // === feature.py 용 추가 getter ===
+
+    #[getter]
+    #[pyo3(name = "akas_seen")]
+    fn akas_seen_py(&self) -> [bool; 3] {
+        self.akas_seen
+    }
+
+    #[getter]
+    #[pyo3(name = "dora_indicators")]
+    fn dora_indicators_py(&self) -> Vec<String> {
+        self.dora_indicators
+            .iter()
+            .map(|t| t.to_string())
+            .collect()
+    }
+
+    #[getter]
+    #[pyo3(name = "kawa_overview")]
+    fn kawa_overview_py(&self) -> Vec<Vec<String>> {
+        self.kawa_overview
+            .iter()
+            .map(|arr| {
+                arr.iter()
+                    .map(|t| t.to_string())
+                    .collect::<Vec<_>>()
+            })
+            .collect()
+    }
+
+    #[getter]
+    #[pyo3(name = "fuuro_overview")]
+    fn fuuro_overview_py(&self) -> Vec<Vec<Vec<String>>> {
+        self.fuuro_overview
+            .iter()
+            .map(|player_fuuro| {
+                player_fuuro
+                    .iter()
+                    .map(|meld| {
+                        meld.iter()
+                            .map(|t| t.to_string())
+                            .collect::<Vec<_>>()
+                    })
+                    .collect::<Vec<_>>()
+            })
+            .collect()
+    }
+
+    #[getter]
+    #[pyo3(name = "kawa")]
+    fn kawa_py(&self) -> Vec<Vec<String>> {
+        self.kawa
+            .iter()
+            .map(|tv| {
+                tv.iter()
+                    .filter_map(|opt| opt.as_ref())
+                    .map(|item| item.to_string())
+                    .collect::<Vec<_>>()
+            })
+            .collect()
+    }
 }
 
 impl PlayerState {
