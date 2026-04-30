@@ -158,12 +158,6 @@ impl PlayerState {
         self.is_menzen
     }
 
-    #[getter]
-    #[must_use]
-    pub fn last_kawa_tile(&self) -> Option<String> {
-        self.last_kawa_tile.map(|t| t.to_string())
-    }
-
     /// Returns an `ActionCandidate`.
     #[pyo3(name = "update")]
     pub(super) fn update_json(&mut self, mjai_json: &str) -> Result<ActionCandidate> {
