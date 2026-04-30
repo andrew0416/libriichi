@@ -152,6 +152,12 @@ impl PlayerState {
         }
     }
 
+    #[getter]
+    #[must_use]
+    pub fn is_menzen(&self) -> bool {
+        self.is_menzen
+    }
+
     /// Returns an `ActionCandidate`.
     #[pyo3(name = "update")]
     pub(super) fn update_json(&mut self, mjai_json: &str) -> Result<ActionCandidate> {
