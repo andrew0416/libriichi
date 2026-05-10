@@ -2,7 +2,7 @@ cargo-features = ["edition2024"]
 
 [package]
 name = "libriichi"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "AGPL-3.0-or-later"
 
@@ -38,7 +38,7 @@ mimalloc = { version = "0.1", default-features = false, optional = true }
 
 pyo3 = { version = "0.25", features = [
     "extension-module",
-    "abi3-py313",
+    "abi3-py310",
     "auto-initialize",
     "multiple-pymethods",
     "anyhow"
