@@ -34,6 +34,7 @@ jobs:
         with:
           command: build
           args: --release --out dist -i python${{ matrix.python }}
+          manylinux: 2014
 
       - name: Upload wheels
         uses: actions/upload-artifact@v4
